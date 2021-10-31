@@ -8,3 +8,22 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+* {
+    text-decoration: none;
+}
+
+nav {
+    background-color: blue;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    font-size: 1.7rem;
+    align-items: center;
+}
+
+footer {
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-between;
+}
