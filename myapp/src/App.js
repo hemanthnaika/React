@@ -1,6 +1,6 @@
-import Navbar from "./layouts/Navbar";
+// import Navbar from "./layouts/Navbar";
 import Content from "./components/Content";
-import Footer from "./layouts/Footer";
+// import Footer from "./layouts/Footer";
 
 //!Array In React
 const App = () => {

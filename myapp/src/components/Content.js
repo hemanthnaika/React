@@ -1,53 +1,38 @@
-// import ListItem from "./ListItem";
-import { useState } from 'react'
-import { render } from "react-dom";
-
+import { useState } from "react";
 const Content = () => {
-    // request the API for data
-    // let counter = 0
-    //?    Change the Dom 
-    const [counter,setCounter] = useState(0)
-    //const [items,setitems]=useState[1]
-    // console.log(counter)
-    // console.log(setCounter)
+  const [items, setItems] = useState([]);
+  const [value, setValue] = useState([""]);
 
+  const handlerSubmit = () => {
+    //setItems((prev) => [...prev]);
+    //?Add to the array
+    setValue('')
+    setItems(prev=>[...prev,value])
 
-    return (
-        <div className="container">
-            <h2>{counter}</h2>
-            <button onClick={() => {
-                // console.log(counter)
-                // counter = counter + 1
-                setCounter(previousValue=>previousValue+1)
-            }} >ClickMe</button>
-        </div>
-    );
+};
+  const handlerInput = (e) => {
+    setValue(e.target.value);
+  };
+//   console.log("value change");
+//?Delete the item
+const  handlerDelete=(item)=>{
+    // console.log(item)
+    setItems(prev=>prev.filter(i=>i !== item))
 }
+  return (
+    <>
+      <h1>Todo</h1>
+
+      <input value={value} onChange={handlerInput} type="text" />
+      <button onClick={ handlerSubmit } type="submit">Add</button>
+
+      <ul>
+        {items.map((item) => (
+          <li>{item}<button onClick={ ()=>{handlerDelete(item)}}>Delete</button></li>
+        ))}
+      </ul>
+    </>
+  );
+};
 
 export default Content;
-
-// import React from "react";
-
-// class Content extends React.Component {
-//     constructor() {
-//         super();
-//         this.state = {
-//             count: 0
-//         };
-//     }
-
-//     render() {
-//         return (
-//             <div className="container">
-//                 {/* <h2>{counter}</h2>
-//             <button onClick={() => {
-//                 console.log(counter)
-//                 counter = counter + 1
-//             }} >ClickMe</button> */}
-//             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem dolorem possimus quod corrupti dignissimos, labore molestiae nulla unde cumque libero tempore reprehenderit laboriosam non quidem soluta dolorum a? Provident.
-//             </div>
-//         )
-//     }
-// }
-
-// export default Content;
