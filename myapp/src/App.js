@@ -6,9 +6,9 @@ import Footer from "./layouts/Footer";
 const App = () => {
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
       <Content />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
