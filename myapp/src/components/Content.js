@@ -1,38 +1,31 @@
-import { useState } from "react";
+import {useState,useEffect}from 'react'
 const Content = () => {
-  const [items, setItems] = useState([]);
-  const [value, setValue] = useState([""]);
+//   console.log('Mounted')
 
-  const handlerSubmit = () => {
-    //setItems((prev) => [...prev]);
-    //?Add to the array
-    setValue('')
-    setItems(prev=>[...prev,value])
-
-};
-  const handlerInput = (e) => {
-    setValue(e.target.value);
-  };
-//   console.log("value change");
-//?Delete the item
-const  handlerDelete=(item)=>{
-    // console.log(item)
-    setItems(prev=>prev.filter(i=>i !== item))
+  const [counter,setCounter]=useState(0)
+  const [content,setContent]=useState([])
+  const APICall=async()=>{
+      const res=await fetch('https://jsonplaceholder.typicode.com/photos')
+      const data=await res.json()
+      setContent(data)
+  }
+  useEffect(()=>{
+      APICall()
+  },[])
+  useEffect(()=>{
+console.log('counter change')
+},[counter])
+    return (  
+        <div>
+            <h2>
+                {counter}
+            </h2>
+            <button onClick={()=>{setCounter(prev=>prev+1)}}>click</button>
+            <ul>
+                {content.map(item=><li style={{margin:"10px",border:"3px solid black"}}>{item.title}</li>)}
+            </ul>
+        </div>
+    );
 }
-  return (
-    <>
-      <h1>Todo</h1>
-
-      <input value={value} onChange={handlerInput} type="text" />
-      <button onClick={ handlerSubmit } type="submit">Add</button>
-
-      <ul>
-        {items.map((item) => (
-          <li>{item}<button onClick={ ()=>{handlerDelete(item)}}>Delete</button></li>
-        ))}
-      </ul>
-    </>
-  );
-};
-
+ 
 export default Content;
