@@ -1,10 +1,13 @@
-// Sfc shortcut
-const Navbar = () => {
-  return (
-    <nav>
-      <a href="#"> Home </a> <a href="#"> About </a> <a href="#"> Contact </a>
-    </nav>
-  );
-};
+const Navbar = ({setcurrentComp}) => {
+    // console.log(props)
+    // const{setcurrentComp}=props
+    return (
+        <nav>
+            <a onClick={() => { setcurrentComp('calculator') }} href="#">Calculator</a>
+            <a onClick={() => { setcurrentComp('timer') }} href="#">Timer</a>
+            <a onClick={() => { setcurrentComp('tap') }} href="#">Tap</a>
+        </nav>
+    );
+}
 
 export default Navbar;
