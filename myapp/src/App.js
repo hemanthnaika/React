@@ -1,34 +1,12 @@
-import { useState,useEffect } from 'react'
-import Calculator from './components/Calculator';
-
-import Navbar from './layouts/Navbar'
-import Info from './components/Info';
-import Timer from './components/Timer';
-import Tap from './components/Tap'
-
-
+import Description from "./components/Description";
 
 const App = () => {
-  // const currentcomp='timer'
-  const [currentComp,setcurrentComp]=useState('info')
+  console.log(Description)
   return (
-    <div className="App">
-      <Navbar setcurrentComp={setcurrentComp} />
-      {
-        currentComp==='calculator'? <Calculator />
-        :currentComp==='timer'? <Timer />
-         :currentComp==='tap'?<Tap />
-           :<Info />
-      }
-      {/* <Info />
-      <Timer />
-       <Calculator />
-       <Tap /> */}
-    </div >
+    <div>
+      <Description />
+    </div>
   );
-}
-
-
+};
 
 export default App;
-
