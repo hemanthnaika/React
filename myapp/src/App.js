@@ -1,12 +1,13 @@
-import Description from "./components/Description";
+import {useState}from 'react'
 
+import One from './components/One'
 const App = () => {
-  console.log(Description)
+  // const[data,setdata]=useState([{pass:"abcd"},{pas:"fsg"}])
   return (
     <div>
-      <Description />
+      <One  />
     </div>
-  );
-};
-
+    );
+}
+ 
 export default App;
