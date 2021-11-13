@@ -1,11 +1,18 @@
 import { useSelector } from "react-redux";
+import { useState } from 'react'
 
 const Two = () => {
+    const [product, setproduct] = useState('')
     const state = useSelector(state => state.categories)
-    console.log(state)
+
+    const handleSubmit = () => {
+        console.log(product)
+    }
     return (
         <div>
-            <h2>I'm compTwont Two</h2>
+            <input onChange={(e) => { setproduct(e.target.value) }}
+                type="text" />
+            <button onClick={handleSubmit} >Add</button>
         </div>
     );
 }
