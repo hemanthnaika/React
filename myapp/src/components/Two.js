@@ -1,12 +1,18 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from 'react'
 
 const Two = () => {
     const [product, setproduct] = useState('')
-    const state = useSelector(state => state.categories)
+    // const state = useSelector(state => state.categories)
+    const dispatch = useDispatch()
 
     const handleSubmit = () => {
-        console.log(product)
+        const action = {
+            type: "ADD_PRODUCT",
+            payload: product
+        }
+
+        dispatch(action)
     }
     return (
         <div>
