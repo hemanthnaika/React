@@ -5,7 +5,7 @@ import { createStore } from 'redux'
 import reducer from './reducer/reducer';
 import { Provider } from 'react-redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
-
+import{BrowserRouter}from 'react-router-dom'
 const chores = [
 {
   id:1,
@@ -29,7 +29,10 @@ const store = createStore(reducer, chores, composeWithDevTools())
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store} >
-      <App />
+<BrowserRouter>
+<App />
+
+</BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
