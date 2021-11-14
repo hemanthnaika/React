@@ -1,5 +1,6 @@
 
 import { useSelector,useDispatch }from 'react-redux' 
+import AddItem from './AddItem'
 const List = () => {
   const dispatch=useDispatch()
     const items = useSelector(state => state)
@@ -15,6 +16,7 @@ const List = () => {
 
     return (
         <div>
+          <AddItem/>
             <ul>
                 {
                     items.map(item => {
