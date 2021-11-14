@@ -1,10 +1,18 @@
+import { useSelector } from 'react-redux'
+
 const Products = () => {
-  return (
-    <div>
-      <h1>Products</h1>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum nobis eligendi voluptatum, ut quaerat explicabo nemo dignissimos qui sit molestias nam tempora recusandae consequuntur quo harum facilis dolorem mollitia alias.
-    </div>
+    const products = useSelector(state => state)
+    console.log(products)
+    return (
+        <div>
+            <h2>Products</h2>
+            {products.map(product => 
+            <li>
+              {/* To change the router */}
+              <a href={`product/${product.name}`}>{product.name}</a>
+            </li>)}
+        </div>
     );
 }
- 
+
 export default Products;

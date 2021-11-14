@@ -1,8 +1,15 @@
+import {  useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 const Details = () => {
+const{name}=useParams()
+const products=useSelector(state=>state)
+const product=products.find(product=>product.name===name)
+console.log(product)
   return ( 
     <div>
-      <h1>Product Details</h1>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident blanditiis, minima assumenda ratione, recusandae consequuntur aliquam accusantium rerum iste beatae, sint hic laudantium eum distinctio quidem ducimus excepturi. Nemo, minima.
+      <h1>{name} Details</h1>
+  {product.description}
     </div>
    );
 }
