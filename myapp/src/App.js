@@ -1,14 +1,12 @@
-import One from "./components/One";
-import Two from "./components/Two";
-import reducer from "./reducer/reducer";
+import { useState } from "react";
+import List from "./components/List";
 
 const App = () => {
-  return ( <div>
-
-    <One/>
-    <Two/>
-<reducer/>
-  </div> );
+  return ( 
+    <div>
+  <List/>
+    </div>
+   );
 }
  
 export default App;
